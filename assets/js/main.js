@@ -471,9 +471,16 @@
     }
 
     /* ---------- Mark current nav link ---------- */
-    const path = location.pathname.split('/').pop() || 'index.html';
+    // Normalise the pathname so '/about', '/about/', '/about.html' all collapse to '/about'.
+    // Home collapses to '/'.
+    const normalisePath = (p) => {
+        let n = (p || '/').replace(/\.html$/i, '').replace(/\/index$/i, '/');
+        if (n.length > 1 && n.endsWith('/')) n = n.slice(0, -1);
+        return n || '/';
+    };
+    const currentPath = normalisePath(location.pathname);
     $$('.nav-link, .nav-mobile a').forEach((a) => {
-        const href = a.getAttribute('href');
-        if (href === path || (path === '' && href === 'index.html')) a.classList.add('active');
+        const href = normalisePath(a.getAttribute('href') || '');
+        if (href === currentPath) a.classList.add('active');
     });
 })();

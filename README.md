@@ -136,9 +136,21 @@ kathiravan-portfolio/
 ## Customization
 
 - **Theme palette** lives in CSS variables at the top of `assets/css/style.css` (`:root` and `[data-theme="light"]`).
-- **Nav links** are defined once in `assets/js/partials.js` and rendered on every page.
+- **Nav links** are defined once in `assets/js/partials.js` and rendered on every page. All internal links use the clean, extension-less form (`/about`, `/projects`, `/contact`, …).
 - **Resume link** — drop the latest PDF at `/assets/doc/resume.pdf`. The *Download Resume* buttons on `index.html` and `experience.html` already point to it.
 - **OG image** — create a 1200x630 social cover at `/assets/images/og-cover.png` and the share previews will pick it up automatically.
+
+### Clean URLs (no `.html`)
+
+The whole site links to clean URLs like `https://kathiravan.dev/about` instead of `…/about.html`. The HTML files themselves still live at the project root (`about.html`, `projects.html`, …) — the Nginx server in front of them does the mapping.
+
+On the VPS, include the snippet at [`deploy/nginx.conf`](./deploy/nginx.conf) inside the `server { … }` block for `kathiravan.dev` (or `include /path/to/deploy/nginx.conf;` it). It does three things:
+
+1. `try_files $uri $uri.html $uri/ =404;` — resolves `/about` to `/about.html` on disk.
+2. 301-redirects any legacy `/<page>.html` request to `/<page>` (preserves query strings and SEO).
+3. 301-redirects `/index` and `/index.html` to `/`.
+
+After editing the vhost: `sudo nginx -t && sudo systemctl reload nginx`.
 
 ---
 
