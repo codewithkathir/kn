@@ -53,7 +53,7 @@ All third-party libraries are loaded via CDN, so there is **no build step**.
 - GSAP scroll-stagger animations
 - AOS scroll reveals throughout
 - Magnetic buttons
-- Resume download button (drop your PDF into `/assets/images/` and point the link to it)
+- Resume download button (PDF lives at `/assets/doc/resume.pdf` and is wired on the Home + Experience pages)
 - Particle network in the hero (Canvas)
 - Smooth scrolling, sticky navbar, blur effects
 - Fully responsive (mobile → desktop)
@@ -125,8 +125,10 @@ kathiravan-portfolio/
     ├── js/
     │   ├── partials.js         # Renders nav + footer everywhere
     │   └── main.js             # Cursor, particles, theme, counters, form, GSAP
+    ├── doc/
+    │   └── resume.pdf           # Wired to "Download Resume" buttons
     └── images/
-        └── (drop resume.pdf, og-cover.png here)
+        └── (og-cover.png, profile photo, etc.)
 ```
 
 ---
@@ -135,7 +137,7 @@ kathiravan-portfolio/
 
 - **Theme palette** lives in CSS variables at the top of `assets/css/style.css` (`:root` and `[data-theme="light"]`).
 - **Nav links** are defined once in `assets/js/partials.js` and rendered on every page.
-- **Resume link** — replace the `href="#"` of the *Download Resume* button on `index.html` and `experience.html` with `/assets/images/resume.pdf` after dropping the PDF in.
+- **Resume link** — drop the latest PDF at `/assets/doc/resume.pdf`. The *Download Resume* buttons on `index.html` and `experience.html` already point to it.
 - **OG image** — create a 1200x630 social cover at `/assets/images/og-cover.png` and the share previews will pick it up automatically.
 
 ---

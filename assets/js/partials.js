@@ -6,7 +6,7 @@
         { href: 'projects.html', label: 'Projects' },
         { href: 'experience.html', label: 'Experience' },
         { href: 'services.html', label: 'Services' },
-        { href: 'blog.html', label: 'Blog' },
+        // { href: 'blog.html', label: 'Blog' }, // TODO: re-enable once blog content is ready
         { href: 'contact.html', label: 'Contact' },
     ];
 
@@ -96,10 +96,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© ${new Date().getFullYear()} Kathiravan Nambirajan. Crafted with care.</span>
-                <span style="display:inline-flex; align-items:center; gap:8px;">
-                    <span class="kbd">v2.0</span>
-                    <span>Built with Tailwind · GSAP · Vanilla JS</span>
+                <span>© ${new Date().getFullYear()} Kathiravan Nambirajan. Crafted with care in Chennai, India.</span>
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                    <span class="live-dot" aria-hidden="true"></span>
+                    Available for senior full-stack roles
                 </span>
             </div>
         </div>

@@ -38,7 +38,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="assets/css/style.css?v=6" />
+<link rel="stylesheet" href="assets/css/style.css?v=8" />
 </head>
 <body>
 
@@ -116,7 +116,7 @@
 
                 <div style="margin-top: 20px; padding: 16px; border-radius: 14px; background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.25); color: #86efac; font-size: 14px; display:flex; align-items:center; gap:12px;">
                     <span style="width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 12px #22c55e; flex-shrink:0;"></span>
-                    Currently accepting senior full-stack engagements for Q2 / Q3 2026.
+                    Currently accepting senior full-stack engagements.
                 </div>
             </div>
 
@@ -175,10 +175,11 @@
                 </div>
 
                 <button id="submitBtn" type="submit" class="btn btn-primary btn-submit" data-magnetic>
-                    <span class="label">Send Message
-                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                    <span class="label">
+                        <span>Send Message</span>
+                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                     </span>
-                    <span id="loader" class="spinner hidden"><i></i></span>
+                    <span id="loader" class="spinner hidden" aria-hidden="true"><i></i></span>
                 </button>
 
                 <div id="successMsg" class="form-banner success-banner hidden">
@@ -235,6 +236,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script src="assets/js/partials.js?v=6"></script>
-<script src="assets/js/main.js?v=6"></script>
+<script src="assets/js/main.js?v=8"></script>
 </body>
 </html>

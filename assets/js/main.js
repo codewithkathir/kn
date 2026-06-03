@@ -10,11 +10,13 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- Loader ---------- */
-    window.addEventListener('load', () => {
+    const hideLoader = () => {
         const loader = $('.page-loader');
-        if (!loader) return;
-        setTimeout(() => loader.classList.add('is-hidden'), 600);
-    });
+        if (loader) loader.classList.add('is-hidden');
+    };
+    window.addEventListener('load', () => setTimeout(hideLoader, 600));
+    // Safety net: never let the loader trap the page (e.g. a hung CDN request)
+    setTimeout(hideLoader, 3500);
 
     /* ---------- Theme toggle (dark/light) ---------- */
     const root = document.documentElement;
@@ -422,18 +424,28 @@
     }
 
     /* ---------- GSAP scroll reveals (extra polish) ---------- */
-    if (window.gsap && window.ScrollTrigger) {
+    if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
         gsap.registerPlugin(ScrollTrigger);
         $$('.gsap-stagger').forEach((wrap) => {
-            const items = wrap.children;
-            gsap.from(items, {
-                opacity: 0,
-                y: 30,
-                duration: 0.6,
-                stagger: 0.08,
-                ease: 'power3.out',
-                scrollTrigger: { trigger: wrap, start: 'top 80%' },
-            });
+            const items = Array.from(wrap.children);
+            if (!items.length) return;
+            gsap.fromTo(
+                items,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    ease: 'power3.out',
+                    immediateRender: false,
+                    scrollTrigger: {
+                        trigger: wrap,
+                        start: 'top 85%',
+                        once: true,
+                    },
+                }
+            );
         });
 
         // Hero entrance
@@ -448,6 +460,14 @@
                 delay: 0.4,
             });
         }
+    } else {
+        // Fallback: GSAP/ScrollTrigger unavailable (or reduced motion) — ensure content is visible.
+        $$('.gsap-stagger').forEach((wrap) => {
+            Array.from(wrap.children).forEach((el) => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+        });
     }
 
     /* ---------- Mark current nav link ---------- */
