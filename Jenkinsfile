@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 environment {
     IMAGE_NAME = "kathiravan-portfolio"
     CONTAINER_NAME = "kathiravan-portfolio"
@@ -48,6 +47,5 @@ stages {
         }
     }
 }
-```
 
 }
