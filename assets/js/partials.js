@@ -1,19 +1,19 @@
 /* Renders global navbar and footer markup. Loaded BEFORE main.js. */
 (() => {
     const navLinks = [
-        { href: '/',           label: 'Home' },
-        { href: '/about',      label: 'About' },
-        { href: '/projects',   label: 'Projects' },
-        { href: '/experience', label: 'Experience' },
-        { href: '/services',   label: 'Services' },
-        // { href: '/blog',    label: 'Blog' }, // TODO: re-enable once blog content is ready
-        { href: '/contact',    label: 'Contact' },
+        { href: 'index.html',      label: 'Home' },
+        { href: 'about.html',      label: 'About' },
+        { href: 'projects.html',   label: 'Projects' },
+        { href: 'experience.html', label: 'Experience' },
+        { href: 'services.html',   label: 'Services' },
+        // { href: 'blog.html',       label: 'Blog' }, // TODO: re-enable once blog content is ready
+        { href: 'contact.html',    label: 'Contact' },
     ];
 
     const navHTML = `
     <header class="nav-shell">
         <nav class="nav-bar">
-            <a href="/" class="nav-brand">
+            <a href="index.html" class="nav-brand">
                 <span class="nav-brand-mark">KN</span>
                 <span>Kathiravan<span style="color: var(--primary);">.</span></span>
             </a>
@@ -22,7 +22,7 @@
             </div>
             <div style="display:flex; align-items:center; gap:8px;">
                 <button class="theme-toggle" aria-label="Toggle theme"></button>
-                <a class="nav-cta" href="/contact" data-cursor="hover">
+                <a class="nav-cta" href="contact.html" data-cursor="hover">
                     Let's Talk
                     <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </a>
@@ -39,7 +39,7 @@
         </nav>
         <div class="nav-mobile" id="primary-mobile-nav">
             ${navLinks.map((l) => `<a href="${l.href}" data-mobile-link>${l.label}</a>`).join('')}
-            <a href="/contact" data-mobile-link style="margin-top:8px; background: var(--grad-primary); color: white; text-align:center; font-weight:600;">Let's Talk →</a>
+            <a href="contact.html" data-mobile-link style="margin-top:8px; background: var(--grad-primary); color: white; text-align:center; font-weight:600;">Let's Talk →</a>
         </div>
     </header>`;
 
@@ -91,7 +91,7 @@
                         <a href="mailto:nkathiravan90@gmail.com">nkathiravan90@gmail.com</a>
                         <a href="tel:+918754101216">+91 87541 01216</a>
                         <a href="https://wa.me/918754101216" target="_blank" rel="noopener">WhatsApp Chat</a>
-                        <a href="#">Chennai, India</a>
+                        <a href="https://www.google.com/maps/place/Chennai,+Tamil+Nadu,+India" target="_blank" rel="noopener">Chennai, India</a>
                     </div>
                 </div>
             </div>

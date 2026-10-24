@@ -102,7 +102,8 @@
     document.body.appendChild(bar);
     window.addEventListener('scroll', () => {
         const h = document.documentElement;
-        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        const max = h.scrollHeight - h.clientHeight;
+        const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
         bar.style.width = pct + '%';
     }, { passive: true });
 
@@ -478,9 +479,10 @@
         if (n.length > 1 && n.endsWith('/')) n = n.slice(0, -1);
         return n || '/';
     };
+    // Compare resolved pathnames so relative hrefs ('about.html') match under http:// and file:// alike.
     const currentPath = normalisePath(location.pathname);
     $$('.nav-link, .nav-mobile a').forEach((a) => {
-        const href = normalisePath(a.getAttribute('href') || '');
+        const href = normalisePath(new URL(a.href, location.href).pathname);
         if (href === currentPath) a.classList.add('active');
     });
 })();
