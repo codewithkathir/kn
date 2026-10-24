@@ -38,7 +38,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<link rel="stylesheet" href="assets/css/style.css?v=8" />
+<link rel="stylesheet" href="assets/css/style.css?v=9" />
 </head>
 <body>
 
@@ -208,13 +208,13 @@
 
         <!-- Pagination (visual) -->
         <div style="display:flex; justify-content:center; align-items:center; gap:8px; margin-top: 56px;" data-aos="fade-up">
-            <button class="theme-toggle" style="width:auto; padding: 0 14px; height: 38px;" aria-label="Previous">
+            <button class="page-btn" aria-label="Previous">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
             </button>
-            <button class="blog-tab active" style="width:38px; padding: 0; height: 38px; display:grid; place-items:center;">1</button>
-            <button class="blog-tab" style="width:38px; padding: 0; height: 38px; display:grid; place-items:center;">2</button>
-            <button class="blog-tab" style="width:38px; padding: 0; height: 38px; display:grid; place-items:center;">3</button>
-            <button class="theme-toggle" style="width:auto; padding: 0 14px; height: 38px;" aria-label="Next">
+            <button class="page-btn active" aria-current="page">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn" aria-label="Next">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
             </button>
         </div>
@@ -224,7 +224,7 @@
 <!-- Newsletter CTA -->
 <section class="section" style="padding-top: 40px;">
     <div class="container">
-        <div class="glass" style="padding: clamp(40px, 6vw, 64px); display:grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items:center; position:relative; overflow:hidden;" data-aos="fade-up">
+        <div class="glass newsletter-cta" data-aos="fade-up">
             <div class="hero-orb b" style="width:340px; height:340px; right:-100px; top:auto; bottom:-160px;"></div>
             <div style="position:relative;">
                 <span class="section-eyebrow"><span class="dot"></span>Newsletter</span>
@@ -232,7 +232,7 @@
                 <p class="section-sub">One thoughtful article a month — no spam, no fluff.</p>
             </div>
             <form onsubmit="event.preventDefault();" style="display:flex; gap:10px; position:relative;">
-                <input type="email" required placeholder="you@company.com" aria-label="Email" style="flex:1; padding: 14px 18px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text); font-family:inherit;" />
+                <input type="email" required placeholder="you@company.com" aria-label="Email" style="flex:1; min-width:0; padding: 14px 18px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text); font-family:inherit;" />
                 <button class="btn btn-primary" type="submit">Subscribe</button>
             </form>
         </div>
